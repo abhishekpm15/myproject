@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Input, Checkbox } from "@material-tailwind/react";
 import sky2 from "../images/sky2.jpg";
 import { motion } from "framer-motion";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import SignupPage from "./SignupPage";
 import {
   Card,
@@ -31,7 +31,7 @@ const LoginPage = () => {
             className="mb-4 grid h-28 place-items-center"
           >
             <Typography variant="h3" color="white">
-              Sign In
+              Log In
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
@@ -43,23 +43,19 @@ const LoginPage = () => {
           </CardBody>
           <CardFooter className="pt-0">
             <Button variant="gradient" fullWidth>
-              Sign In
+              Log In
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
               Don't have an account?
-              {/* <Typography
-            as="a"
-            href="#signup"
-            variant="small"
-            color="blue"
-            className="ml-1 font-bold"
-          > */}
-              {/* <Router>
-                <div>
-                <Link to="/SignupPage">Sign up</Link>
-                </div>
-              </Router> */}
-              {/* </Typography> */}
+              <Link to="/SignupPage">
+                <Typography
+                  variant="small"
+                  color="blue"
+                  className="ml-1 font-bold"
+                >
+                  Sign up
+                </Typography>
+              </Link>
             </Typography>
           </CardFooter>
         </Card>
