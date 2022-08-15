@@ -15,7 +15,7 @@ import {
 
 
 const SignupPage = () => {
-
+  const [show, setShow] = useState(true);
   const [email,setEmail] = useState();
   const [password,setPassword] = useState();
   const {signUp,error} = useUserAuth();
@@ -32,7 +32,14 @@ const SignupPage = () => {
       className="bg-cover overflow-auto object-cover"
     >
       <div>
-        {error ? <Alert color="red">{error.toString()}</Alert> :(null)}
+        {error ? <Alert
+        show={show}
+        dismissible={{
+          onClose: () => setShow(false),
+        }}
+      >
+        {error.toString()}
+      </Alert> :(null)}
       </div>
       <div className="float-right mx-3 my-3">
         <Button
