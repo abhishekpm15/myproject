@@ -1,22 +1,49 @@
-import React from "react";
-import { Button, Input, Checkbox } from "@material-tailwind/react";
+import React, { useState } from "react";
+import { Button, Input, Checkbox,Alert } from "@material-tailwind/react";
 import sky2 from "../images/sky2.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useUserAuth } from "../components/context/UserAuthContext";
 import {
   Card,
   CardHeader,
-  CardBody,
+  CardBody, 
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
 
+
 const SignupPage = () => {
+
+  const [email,setEmail] = useState();
+  const [password,setPassword] = useState();
+  const {signUp,error} = useUserAuth();
+  
+  const handleSubmit  = (e) =>{
+      e.preventDefault()
+      signUp(email,password);
+  };
+  
+  let navigate = useNavigate();
   return (
     <div
       style={{ backgroundImage: `url(${sky2})` }}
       className="bg-cover overflow-auto object-cover"
     >
+      <div>
+        {error ? <Alert color="red">{error.toString()}</Alert> :(null)}
+      </div>
+      <div className="float-right mx-3 my-3">
+        <Button
+          color="red"
+          onClick={() => {
+            navigate("/Home");
+          }}
+        >
+          Go back
+        </Button>
+      </div>
       <motion.div
         className="mx-[35%] my-[5%]"
         initial={{ opacity: 0 }}
@@ -34,14 +61,20 @@ const SignupPage = () => {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input label="Email" size="lg" />
-            <Input label="Password" size="lg" />
+            <Input label="Email" size="lg" onChange={(e)=>setEmail(e.target.value)} required />
+            <Input label="Password" onChange={(e)=>setPassword(e.target.value)} size="lg" required />
+            {/* <Input label="Confirm Password" size="lg" required /> */}
             <div className="-ml-2.5">
               <Checkbox label="Remember Me" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button
+              type="submit"
+              variant="gradient"
+              fullWidth
+              onClick={handleSubmit}
+            >
               Sign Up
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
