@@ -17,6 +17,7 @@ const Contact = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        className="h-screen bg-cover"
       >
         <div className="flex justify-between">
           <div>

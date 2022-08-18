@@ -8,8 +8,8 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import Navbar from "../components/Navbar";
 import svgimage from "../images/undraw_Educator_re_ju47.png";
-import { motion } from "framer-motion"
-import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -23,10 +23,13 @@ const HomePage = () => {
   const people = [{ name: "English" }, { name: "Hindi" }, { name: "Tamil" }];
   const [selected, setSelected] = useState(people[0]);
   return (
-    <motion.div style={{ backgroundImage: `url(${sky2})` }} className="bg-cover"
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    exit={{opacity:0}}>
+    <motion.div
+      style={{ backgroundImage: `url(${sky2})` }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="h-screen bg-cover"
+    >
       <div className="flex justify-between">
         <div>
           <img src={logo} alt="logo" className="w-10 my-1 mx-1" />
@@ -38,11 +41,10 @@ const HomePage = () => {
       </div>
       <br></br>
 
-     
       <div>
         <Heading />
       </div>
-      
+
       <br></br>
 
       <div className="mx-72">
@@ -118,7 +120,13 @@ const HomePage = () => {
           </div>
         </Listbox>
       </div>
-      <Button color="blue" className="inline-block mt-11 mb-11" onClick={()=>{navigate("/LoginPage")}}>
+      <Button
+        color="blue"
+        className="inline-block mt-11 mb-11"
+        onClick={() => {
+          navigate("/LoginPage");
+        }}
+      >
         Get Started
       </Button>
     </motion.div>

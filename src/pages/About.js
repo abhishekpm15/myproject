@@ -15,7 +15,7 @@ const About = () => {
   return (
     <div
       style={{ backgroundImage: `url(${sky2})` }}
-      className="bg-cover overflow-auto object-cover"
+      className="h-screen bg-cover"
     >
       <motion.div
         initial={{ opacity: 0 }}

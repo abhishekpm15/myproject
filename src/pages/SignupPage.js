@@ -39,7 +39,7 @@ const SignupPage = () => {
         }}
       >
         {error.toString()}
-      </Alert> :(null)}
+      </Alert> : navigate("/DashBoard")}
       </div>
       <div className="float-right mx-3 my-3">
         <Button
@@ -69,7 +69,7 @@ const SignupPage = () => {
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
             <Input label="Email" size="lg" onChange={(e)=>setEmail(e.target.value)} required />
-            <Input label="Password" onChange={(e)=>setPassword(e.target.value)} size="lg" required />
+            <Input label="Password" size="lg" onChange={(e)=>setPassword(e.target.value)}  required />
             {/* <Input label="Confirm Password" size="lg" required /> */}
             <div className="-ml-2.5">
               <Checkbox label="Remember Me" />
