@@ -10,6 +10,7 @@ import { signOut } from "firebase/auth";
 import { Button } from "@material-tailwind/react";
 import MentorPage from "./MentorPage";
 import { ImFeed } from "react-icons/im";
+import Card from "../components/Card"
 const DashBoard = () => {
   return (
     <motion.div
@@ -38,6 +39,7 @@ const DashBoard = () => {
       </div>
       <div className="">
         <SideNavbar>
+          <Card />
           {/* <div> */}
             <MentorPage
               image="../images/mentormale.png"

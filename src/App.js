@@ -10,6 +10,7 @@ import { AuthProvider } from "./components/context/AuthContext";
 import { Route, Link, BrowserRouter as Router, Routes } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import {auth} from './firebase'
+import MentorPage from "./pages/MentorPage";
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
             <Route path="/LoginPage" element={<LoginPage />} />
             <Route path="/SignupPage" element={<SignupPage />} />
             <Route path="/DashBoard" element={<DashBoard />} />
+            <Route path="/MentorPage" element={<MentorPage />} />
           </Routes>
         </AuthProvider>
       </Router>
