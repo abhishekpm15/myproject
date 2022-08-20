@@ -3,7 +3,11 @@ import { motion } from "framer-motion";
 import sky2 from "../images/sky2.jpg";
 import NavBar2 from "../components/NavBar2";
 import logo from "../images/nvpbois.png";
-import AccountCircleIcon from '@mui/icons-material/AccountBox.js';
+// import AccountCircleIcon from '@mui/icons-material/AccountBox.js';
+import { useAuth } from '../components/context/GoogleAuthContext';
+import { auth } from "../firebase";
+import {signOut } from "firebase/auth";
+import { Button } from "@material-tailwind/react";
 const DashBoard = () => {
   return (
     <motion.div
@@ -20,7 +24,11 @@ const DashBoard = () => {
         <div>
           <NavBar2 />
         </div>
-        <div>{AccountCircleIcon}</div>
+        <div>
+          <Button  className="mx-3 my-3" color="red" onClick={()=>signOut(auth)}>
+            Log Out
+          </Button>
+        </div>
       </div>
     </motion.div>
   );

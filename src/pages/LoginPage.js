@@ -59,7 +59,7 @@ const LoginPage = () => {
                     color="blue"
                     className="ml-1 font-bold"
                   >
-                    Sign up
+                    Sign In
                   </Typography>
                 </Link>
               </Typography>
